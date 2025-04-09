@@ -162,3 +162,7 @@ Lint はプリコミット時に必ず実行されます。以下の vscode プ�
 - All-in-One WP Migrationでローカル環境のデータベースをエクスポートしてテストサイトにインポートした際に、テーマファイルが「src」になる
 
 テーマは通常、Git管理され、CI/CDを通じてデプロイされるため、All-in-One WP Migrationのエクスポートに含めないことを推奨しています。<br>データベースのバックアップや移行が主な目的であれば、All-in-One WP Migrationでデータベースのみをエクスポートし、インポートすることが推奨されます。
+
+## Ref
+
+https://github.com/liginc/wp-starter-theme

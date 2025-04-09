@@ -18,9 +18,6 @@ define("URL_ABOUT", URL_HOME . "about/");
 define("URL_ARCHIVE", URL_HOME . "works/");
 define("URL_PRIVACY", URL_HOME . "privacy/");
 
-// external url
-define("URL_CONTACT", "https://liginc.co.jp/contact");
-
 // ローカル環境ではlocal、本番環境ではproductionを返す
 define("IS_TYPE", wp_get_environment_type());
 define("IS_TYPE_LOCAL", IS_TYPE === "local" ? true : false);
