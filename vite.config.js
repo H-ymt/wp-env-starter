@@ -27,6 +27,10 @@ export default defineConfig({
           src: path.resolve(__dirname + `/src/assets/static/*`),
           dest: "assets/static",
         },
+        {
+          src: path.resolve(__dirname + `/src/assets/css/*`),
+          dest: "assets/css",
+        },
       ],
     }),
     sassGlobImports(),
@@ -66,25 +70,6 @@ export default defineConfig({
           }
           return "assets/[name].[ext]";
         },
-      },
-    },
-  },
-  // CSSでローカルと本番で異なる参照をしたい時に設定してください
-  css: {
-    preprocessorOptions: {
-      scss: {
-        additionalData: `$base-dir: ${(() => {
-          switch (process.env.NODE_ENV) {
-            case "local":
-              return "'http://localhost:3000/src/'";
-            case "development":
-              return "'https://dev.example.com/wp-content/themes/theme-name/'";
-            case "staging":
-              return "'https://staging.example.com/wp-content/themes/theme-name/'";
-            case "production":
-              return "'https://www.example.com/wp-content/themes/theme-name/'";
-          }
-        })()};`,
       },
     },
   },
