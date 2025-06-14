@@ -1,36 +1,49 @@
-# wp-env Starter
+## 目次
 
-## Reference
+- [目次](#目次)
+- [参考リンク](#参考リンク)
+- [WP環境について](#wp環境について)
+- [動作環境](#動作環境)
+- [ローカル環境セットアップ手順](#ローカル環境セットアップ手順)
+- [本番環境へのアップロード](#本番環境へのアップロード)
+- [ブラウザ同期（Browser Sync）](#ブラウザ同期browser-sync)
+- [CSSから画像を参照する方法](#cssから画像を参照する方法)
+- [アセットの扱い方](#アセットの扱い方)
+- [Lintについて](#lintについて)
+- [参考ドキュメント](#参考ドキュメント)
+- [トラブルシュート](#トラブルシュート)
+
+## 参考リンク
 
 https://github.com/liginc/wp-starter-theme
 
-## WP Environment
+## WP環境について
 
 WordPressは常に最新のバージョンを取得する設定になっています。プロジェクト開始時に `.wp-env.json` を編集してWordPressとプラグインのバージョンを固定することを推奨しています。
 
 - WP ver latest
 - PHP ver 8.3
 
-## Usage Environment
+## 動作環境
 
 - [Docker Desktop](https://hub.docker.com/editions/community/docker-ce-desktop-mac/)
 - Node.js >= 18
 
-## Local Environment Setup
+## ローカル環境セットアップ手順
 
-1. package install
+1. パッケージのインストール
 
 ```bash
 npm ci or npm install
 ```
 
-2. wp start up & db import
+2. WP起動 & DBインポート
 
 ```bash
 npm run wp:setup
 ```
 
-3. frontend build start
+3. フロントエンド開発サーバー起動
 
 ```bash
 npm run dev
@@ -45,7 +58,7 @@ user : admin
 password : password
 ```
 
-## Production Upload
+## 本番環境へのアップロード
 
 ```bash
 npm run build
@@ -53,7 +66,7 @@ npm run build
 
 アップロードの際は`/dist`以下をアップロードしてください。
 
-## Browser Sync
+## ブラウザ同期（Browser Sync）
 
 このプロジェクトでは、Viteサーバーのネットワークアクセスのために .wp-env.json ファイルで VITE_SERVER を指定しています。
 
@@ -82,7 +95,7 @@ BrowserSyncを利用して複数デバイス間での同期を実現していま
 
 open <http://100.00.0.000:3030/>
 
-## How to reference images from Css
+## CSSから画像を参照する方法
 
 $base-dir は設定をするとCSSでローカルと本番で異なる参照をすることができます。
 
@@ -90,7 +103,7 @@ $base-dir は設定をするとCSSでローカルと本番で異なる参照を�
 background-image: url($base-dir + "assets/images/icon-blank.svg");
 ```
 
-## Assets
+## アセットの扱い方
 
 ローカル環境ではVITEの開発サーバー、本番環境ではテーマのルートを参照する必要があるため基本的に`vite-config.php`の関数を使用してAssetsにアクセスしてください。
 
@@ -102,7 +115,7 @@ background-image: url($base-dir + "assets/images/icon-blank.svg");
 <img src="<?= vite_src_images('icon-blank.svg') ?>" decoding="async" width="30" height="30" alt="">
 ```
 
-## Lint
+## Lintについて
 
 ```bash
 npm run lint:check
@@ -119,12 +132,12 @@ Lint はプリコミット時に必ず実行されます。以下の vscode プ�
 - [stylelint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint)
 - [eslint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
 
-## Document
+## 参考ドキュメント
 
 - [wp-env](https://ja.wordpress.org/team/handbook/block-editor/reference-guides/packages/packages-env/)
 - [vite](https://ja.vitejs.dev/)
 
-## Trouble Shoot
+## トラブルシュート
 
 All-in-One WP Migrationでローカル環境のデータベースをエクスポートしてテストサイトにインポートした際に、テーマファイルが「src」になる
 
