@@ -2,7 +2,7 @@
 // include your assets here
 
 // get styles
-import "./css/app.css";
+import.meta.glob("./css/**/*.css", { eager: true });
 
 // get scripts
 import "./js/app.js";

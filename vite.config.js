@@ -15,20 +15,17 @@ export default defineConfig({
   plugins: [
     liveReload("./**/*.php"),
     viteStaticCopy({
-      // assetsフォルダ以外のファイルとディレクトリをコピー
-      targets: nonAssetsContents.map((item) => ({
-        src: `src/${item}`,
-        dest: "",
-      })),
-    }),
-    viteStaticCopy({
       targets: [
+        ...nonAssetsContents.map((item) => ({
+          src: `src/${item}`,
+          dest: "",
+        })),
         {
-          src: path.resolve(__dirname + `/src/assets/static/*`),
+          src: path.resolve(__dirname, "src/assets/static/*"),
           dest: "assets/static",
         },
         {
-          src: path.resolve(__dirname + `/src/assets/css/*`),
+          src: path.resolve(__dirname, "src/assets/css/*"),
           dest: "assets/css",
         },
       ],
@@ -52,8 +49,7 @@ export default defineConfig({
     target: "es2018",
     rollupOptions: {
       input: {
-        app: path.resolve(__dirname + `/src/assets/app.js`),
-        "front-page": path.resolve(__dirname + `/src/assets/front-page.js`),
+        app: path.resolve(__dirname, "src/assets/app.js"),
       },
       output: {
         entryFileNames: `assets/js/[name].js`,
